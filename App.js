@@ -5,17 +5,32 @@ import {
         Button,
         Image,
         TextInput,
-      StyleSheet,
-      TouchableOpacity} from 'react-native';
+        StyleSheet,
+        TouchableOpacity,
+        Modal
+        } from 'react-native';
+import ModalResult from './src/components/ModalResult';
 
 class App extends Component {
 
   constructor(props){
     super(props);
     this.state = {
+      modalVisible: false,
+    };
 
-    };   
+    this.open = this.open.bind(this);
+    this.close = this.close.bind(this);
   }
+
+  open(){
+    this.setState({modalVisible: true})
+  }
+
+  close(visible){
+    this.setState({modalVisible: visible})
+  }
+
 
   render() {
     return (
@@ -38,10 +53,16 @@ class App extends Component {
           keyboardType="numeric"/>
         </View>
 
-        <TouchableOpacity style={styles.btn}>
+        <TouchableOpacity style={styles.btn} onPress={this.open}>
           <Text style={styles.btnText}>Calcular</Text>
         </TouchableOpacity>
       </View>
+
+      <Modal animationType='slide' visible={this.state.modalVisible}>
+        <View style={{backgroundColor: '#292929', flex: 1}}>
+          <ModalResult  close={() => this.close(false)}/>
+        </View>
+      </Modal>
 
       </View>
     )
@@ -75,7 +96,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderRadius: 5,
     fontSize: 25,
-    paddingLeft: 20
+    paddingLeft: 20,
+    lineHeight: 30
   },
   btn: {
     backgroundColor:'#EF4130',
