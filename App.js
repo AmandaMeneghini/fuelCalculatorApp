@@ -74,7 +74,8 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: '#FFFFFF',
     borderRadius: 5,
-    padding: 15
+    fontSize: 25,
+    paddingLeft: 20
   },
   btn: {
     backgroundColor:'#EF4130',
