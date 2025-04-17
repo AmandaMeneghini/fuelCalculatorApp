@@ -5,14 +5,15 @@ import {
         Button,
         Image,
         TextInput,
-      StyleSheet} from 'react-native';
+      StyleSheet,
+      TouchableOpacity} from 'react-native';
 
 class App extends Component {
 
   constructor(props){
     super(props);
     this.state = {
-      
+
     };   
   }
 
@@ -20,30 +21,78 @@ class App extends Component {
     return (
       <View style={styles.container}>
         <Image source={require('./src/images/logo.png')} />
-        <Text>Qual melhor opção?</Text>
+        <Text style={styles.titleText}>Qual melhor opção?</Text>
 
-        <View>
-          <Text>Álcool (preço por litro):</Text>
+      <View style={styles.form}>
+        <View style={styles.inputArea}>
+          <Text style={styles.labelText}>Álcool (preço por litro):</Text>
           <TextInput 
+          style={styles.input}
           keyboardType="numeric"/>
         </View>
 
-        <View>
-          <Text>Gasolina (preço por litro):</Text>
+        <View style={styles.inputArea}>
+          <Text style={styles.labelText}>Gasolina (preço por litro):</Text>
           <TextInput 
+          style={styles.input}
           keyboardType="numeric"/>
         </View>
 
-        <Button title='Calcular' />
+        <TouchableOpacity style={styles.btn}>
+          <Text style={styles.btnText}>Calcular</Text>
+        </TouchableOpacity>
+      </View>
 
       </View>
-    );
+    )
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#212121',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+  },
+  titleText:{
+    fontSize: 30,
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+    marginTop: 25
+  },
+  labelText: {
+    fontSize: 20,
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+  },
+  inputArea:{
+    width: '100%',
+    gap: 8,
+  },
+  input: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 5,
+    padding: 15
+  },
+  btn: {
+    backgroundColor:'#EF4130',
+    color: '#FFFFFF',
+    width: '100%',
+    padding: 10,
+    borderRadius: 5,
+    alignItems: 'center',
+  },
+  btnText: {
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+    fontSize: 25,
+  },
+  form:{
+    width: '100%',
+    gap: 18,
+    marginTop: 80
   }
 })
 
