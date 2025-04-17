@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import { 
-        View, 
-        Text, 
-        StyleSheet, 
-        Image,
-        TouchableOpacity} from 'react-native';
+import {
+    View,
+    Text,
+    StyleSheet,
+    Image,
+    TouchableOpacity} from 'react-native';
 
 class ModalResult extends Component {
   render() {
@@ -13,13 +13,13 @@ class ModalResult extends Component {
 
         <Image source={require('../../images/gas.png')} />
 
-        <Text style={styles.responseTitle}>Compensa usar Álcool</Text>
+        <Text style={styles.responseTitle}>Compensa usar {this.props.response}</Text>
 
         <Text style={styles.textHeaderPrice}>
             Com os preços:
         </Text>
-        <Text style={styles.textPrice}>Álcool: R$ 4.60</Text>
-        <Text style={styles.textPrice}>Gasolina: R$ 7.60</Text>
+        <Text style={styles.textPrice}>Álcool: R$ {this.props.alcoholValue}</Text>
+        <Text style={styles.textPrice}>Gasolina: R$ {this.props.gasValue}</Text>
 
         <TouchableOpacity style={styles.btn} onPress={this.props.close}>
             <Text style={styles.btnText}>Calcular novamente</Text>
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     responseTitle: {
-        color: '#30EF5A', 
+        color: '#30EF5A',
         fontSize: 28,
         fontWeight: 'bold',
         textAlign: 'center',
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
         fontSize: 17,
         color: '#FFFFFF',
         margin: 5,
-    },  
+    },
     btn: {
         paddingTop: 5,
         paddingBottom: 5,
@@ -70,4 +70,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default ModalResult
+export default ModalResult;
